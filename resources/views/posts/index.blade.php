@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_','_',app()->getLocale()) }}">
+<html lang="{{ str_replace('_','-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <title>Blog</title>
     <!-- Fonts -->
-    <linlk href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Blog Name</h1>
+    <a href='/posts/create'>create</a>
     <div class='posts'>
-        @foreach($posts as $post)
+        @foreach ($posts as $post)
         <div class='post'>
             <h2 class='title'>
             <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
@@ -18,8 +19,8 @@
         </div>
         @endforeach
      </div>
-     <div class ='paginate'>
+     <div class='paginate'>
         {{ $posts->links() }}
-</div>
+     </div>
    </body>
  </html>
